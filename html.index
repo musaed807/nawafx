@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سجلات نواف بن حبيب • الذهبية</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tahoma', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #f5efe3;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* بطاقة الموقع الرئيسية – أبيض وذهبي */
+        .record {
+            max-width: 1100px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 40px 40px 30px 30px;
+            box-shadow: 0 30px 50px rgba(212, 175, 55, 0.15), 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #f0e2cc;
+        }
+
+        /* شريط التنقل الذهبي */
+        .nav-gold {
+            background: linear-gradient(145deg, #fefcf5, #fff9eb);
+            border-bottom: 3px solid #d4af37;
+            padding: 14px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-item {
+            font-weight: 600;
+            color: #3a2c1b;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: default;
+            border-bottom: 3px solid transparent;
+            padding: 5px 0;
+        }
+
+        .nav-item.active {
+            border-bottom-color: #d4af37;
+            color: #a67c1e;
+        }
+
+        .nav-item i {
+            color: #c9a03d;
+        }
+
+        /* رأس الملف الشخصي */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 25px 30px;
+            background: white;
+            border-bottom: 1px solid #eddbba;
+        }
+
+        .avatar-large {
+            width: 95px;
+            height: 95px;
+            background: #efe1cd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid #d4af37;
+            box-shadow: 0 6px 0 #b88a3b;
+        }
+
+        .avatar-large i {
+            font-size: 50px;
+            color: #8f6f2d;
+        }
+
+        .info-area h1 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #1f1a10;
+            letter-spacing: -0.5px;
+        }
+
+        .gold-badge {
+            background: #d4af37;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 0 #9e751f;
+            margin: 10px 0 6px;
+        }
+
+        .note-card {
+            background: #fef9ed;
+            border-right: 6px solid #d4af37;
+            padding: 12px 20px;
+            border-radius: 20px;
+            color: #5a4a30;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .note-card i {
+            color: #b88b2c;
+            font-size: 1.3rem;
+        }
+
+        /* قسم التقارير + الدلائل */
+        .epstein-report {
+            background: #fcf6e6;
+            border: 2px solid #e4c286;
+            border-radius: 40px;
+            margin: 20px 30px 30px 30px;
+            padding: 25px;
+            box-shadow: 0 12px 0 #d4af37 inset, 0 8px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .report-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 28px;
+            font-weight: 800;
+            color: #5d3f12;
+            margin-bottom: 20px;
+        }
+
+        .report-title i {
+            font-size: 48px;
+            color: #b68b40;
+        }
+
+        .report-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .report-text {
+            flex: 2;
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 4px 12px #e9d9bb;
+            border: 1px solid #ebd3ab;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .gold-highlight {
+            background-color: #fbebc8;
+            padding: 5px 12px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: #745e28;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .images-box {
+            flex: 1;
+            min-width: 220px;
+            background: #fff9e6;
+            border-radius: 40px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 2px dashed #d4af37;
+        }
+
+        .image-card {
+            background: #e9dac4;
+            border-radius: 28px;
+            text-align: center;
+            padding: 25px 10px;
+            border: 3px solid white;
+            box-shadow: 0 6px 0 #b88a3b;
+        }
+
+        .image-card i {
+            font-size: 64px;
+            color: #916f2d;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .image-card span {
+            font-weight: 700;
+            color: #2f250e;
+            background: #fffae9;
+            padding: 6px 12px;
+            border-radius: 40px;
+        }
+
+        /* محتوى الشبكة الرئيسي (بدون ألعاب) */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            padding: 0 30px 30px;
+        }
+
+        /* بطاقات ذهبية */
+        .gold-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 22px;
+            border: 1px solid #e9d5b5;
+            box-shadow: 0 10px 18px -8px rgba(212, 175, 55, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .card-header {
+            font-size: 1.7rem;
+            font-weight: 700;
+            border-bottom: 2px solid #f7e3c5;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-header i {
+            color: #d4af37;
+            font-size: 2rem;
+        }
+
+        /* قائمة المتحولين / فيمبوي */
+        .fem-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .fem-entry {
+            background: #fef8ea;
+            padding: 18px 22px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid #eace9f;
+        }
+
+        .fem-icon {
+            background: #d4af37;
+            width: 55px;
+            height: 55px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+        }
+
+        .fem-desc {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2f2b20;
+        }
+
+        .fem-desc small {
+            font-weight: 400;
+            color: #b17f32;
+            display: block;
+        }
+
+        .friend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0deca;
+        }
+
+        .friend-item .date {
+            color: #b68b40;
+            font-weight: 500;
+        }
+
+        .message-bubble {
+            background: #efe1cd;
+            border-radius: 40px 40px 40px 15px;
+            padding: 18px 22px;
+            font-size: 1.35rem;
+            color: #2c2417;
+            margin: 20px 0;
+            border: 2px solid white;
+            box-shadow: 0 4px 0 #cfa545;
+            font-family: 'Courier New', monospace;
+        }
+
+        .message-bubble i {
+            color: #b8860b;
+            margin-left: 8px;
+        }
+
+        .footer-gold {
+            background: #fef5e3;
+            border-top: 4px solid #d4af37;
+            padding: 18px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            color: #4e3e22;
+            font-weight: 600;
+        }
+
+        .footer-menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-menu span i {
+            color: #c2a044;
+            margin-left: 6px;
+        }
+
+        .additional-strip {
+            background: #fcf3df;
+            padding: 15px 30px;
+            border-top: 1px solid #eedbbd;
+            display: flex;
+            justify-content: space-between;
+            color: #785f2c;
+        }
+
+        /* صورة إضافية */
+        .golden-note i {
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+    <div class="record">
+
+        <!-- شريط التنقل (Board, Activity ...) -->
+        <div class="nav-gold">
+            <span class="nav-item active"><i class="fas fa-th-large"></i> Board</span>
+            <span class="nav-item"><i class="far fa-clock"></i> Activity</span>
+            <span class="nav-item"><i class="far fa-heart"></i> Wishlist</span>
+            <span class="nav-item"><i class="fas fa-user-friends"></i> Mutual Friends</span>
+            <span class="nav-item"><i class="fas fa-server"></i> Mutual Servers</span>
+        </div>
+
+        <!-- الهيدر: نواف بن حبيب مع صورة رمزية -->
+        <div class="profile-header">
+            <div class="avatar-large">
+                <i class="fas fa-venus-mars"></i>   <!-- أيقونة تعبر عن التحول -->
+            </div>
+            <div class="info-area">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
+                    <h1>نواف بن حبيب <span style="font-size: 1rem; background: #ffd966; padding: 5px 12px; border-radius: 30px; margin-right: 10px;">she/her</span></h1>
+                    <span class="gold-badge"><i class="far fa-envelope"></i> Message</span>
+                </div>
+                <div style="color: #b17d32;"><i class="far fa-calendar-alt"></i> اخر وقت تم تسجيل 26, 2025</div>
+                <div class="note-card">
+                    <i class="fas fa-pen"></i> <strong>ملاحظة خاصة:</strong> يوجد صور سريه تامه  (femboy / انتقال)
+                </div>
+            </div>
+        </div>
+
+        <!-- تقرير إبستين + الصور (المطلوبة) + دلائل -->
+        <div class="epstein-report">
+            <div class="report-title">
+                <i class="fas fa-file-contract"></i>
+                <span>📁 دلائل · سجلات خاصة – نواف بن حبيب</span>
+            </div>
+            <div class="report-flex">
+                <div class="report-text">
+                    <p><span class="gold-highlight"><i class="fas fa-passport"></i> 2014 – جزيرة إبستين</span> بناءً على الوثائق المسربة، <strong>نواف بن حبيب</strong> زار جزيرة إبستين (Epstein Island) وعمره <strong>14 سنة</strong>. الصور أدناه تظهر توثيق الرحلة.</p>
+                    <p><span class="gold-highlight"><i class="fas fa-transgender-alt"></i> هوية / فيمبوي</span> تشير المذكرات الداخلية إلى تحول تدريجي، واستخدامه لإطلالات “femboy” منذ سنوات. في السجلات الحديثة يُعرف بـ <strong>نواف بن حبيب</strong>.</p>
+                    <p><i class="fas fa-crown" style="color:#ca9e2b;"></i> “بصير فيمبوي كيف انعم صوتي” – مقتطف من محادثه</p>
+                </div>
+
+                <!-- ✅ قسم الدلائل: الصور التي طلبت إضافتها (مرئية للجميع) -->
+                <div class="images-box">
+                    <!-- الصورة الأولى: صورة جزيرة إبستين (مأخوذة من image.png) -->
+                    <div class="image-card">
+                        <i class="fas fa-island-tropical"></i>
+                        <span>صورة جزيرة إبستين 2014</span>
+                        <small style="display:block; color:#ad7c36;">نواف (14 سنة) على الجزيرة - من image.png</small>
+                    </div>
+                    <!-- الصورة الثانية: Femboy / تحول جنسي (مأخوذة من image.png) -->
+                    <div class="image-card">
+                        <i class="fas fa-ribbon"></i>
+                        <span>Femboy / تحول جنسي</span>
+                        <small style="display:block; color:#ad7c36;">صورة شخصية من ملفه - من image.png</small>
+                    </div>
+                    <!-- الصورة الثالثة: محادثة "هاليها" (مأخوذة من Screenshot 2026-02-23 031429.png) -->
+                    <div class="image-card">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>محادثة: هاليها</span>
+                        <small style="display:block; color:#ad7c36;">"أنا هنسوي جديد (ب) السعي تقالياتي 16" - من screenshot</small>
+                    </div>
+                    <!-- صورة إضافية: سيرفر مقر الشطورين (مأخوذة من Screenshot 2026-02-23 023628.png) -->
+                    <div class="image-card">
+                        <i class="fas fa-server"></i>
+                        <span>مقر الشطورين</span>
+                        <small style="display:block; color:#ad7c36;">Decord.ag/L17 · 3,379 Online</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- المحتوى الرئيسي (تم إزالة الألعاب نهائياً) واستبدالها ببيانات تعبر عن الفيمبوي والتحول) -->
+        <div class="grid-2col">
+            <!-- العمود الأيمن (بدون ألعاب) -->
+            <div>
+                <!-- بطاقة : الهوية / الأدوار -->
+                <div class="gold-card">
+                    <div class="card-header">
+                        <i class="fas fa-transgender-alt"></i>  الهوية الجنسية · فيمبوي
+                    </div>
+                    <div class="fem-list">
+                        <div class="fem-entry">
+                            <div class="fem-icon"><i class="fas fa-feather"></i></div>
+                            <div class="fem-desc">
+                                femboy / متحول إلى بنت <small>تحديث 2025: تستخدم ضمائر she/her</small>
+                            </div>
+                        </div>
+                        <div class="fem-entry">
+                            <div class="fem-icon"><i class="fas fa-dress"></i></div>
+                            <div class="fem-desc">
+                                إطلالات أنثوية بالكامل <small>ملابس ، مكياج حسب الصور المسربة</small>
+                            </div>
+                        </div>
+                        <div class="fem-entry">
+                            <div class="fem-icon"><i class="fas fa-genderless"></i></div>
+                            <div class="fem-desc">
+                                الاسم المستعار: نوافي <small>في سجلات الأصدقاء</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة ثانية : "Mutual Friends" مع ملاحظات الجنس -->
+                <div class="gold-card">
+                    <div class="card-header">
+                        <i class="fas fa-user-friends"></i>  Mutual Friends
+                    </div>
+                    <div class="friend-item">
+                        <span><i class="fas fa-heart" style="color:#d4af37;"></i> Spicy</span>
+                        <span class="date">Member since Feb 26, 2025</span>
+                    </div>
+                    <div class="friend-item">
+                        <span><i class="fas fa-heart" style="color:#d4af37;"></i> hehim (نواف)</span>
+                        <span class="date">Note: femboy friend</span>
+                    </div>
+                    <div class="friend-item">
+                        <span><i class="fas fa-heart" style="color:#d4af37;"></i> سالي</span>
+                        <span class="date">السعي تقالياتي 16</span>
+                    </div>
+                    <div style="margin-top: 20px; background: #fdf0d8; border-radius: 18px; padding: 12px; font-size: 1.1rem;">
+                        <i class="fas fa-pen" style="color:#b8860b;"></i> Note: I only visible to you! Click to add a note
+                    </div>
+                </div>
+
+                <!-- رسالة من الصورة (النص العربي) -->
+                <div class="message-bubble">
+                    <i class="fas fa-quote-right"></i> انا نواف جديد فيمبوي
+                </div>
+            </div>
+
+            <!-- العمود الأيسر (mutual servers, محادثات) -->
+            <div>
+                <!-- Mutual Servers + صورة -->
+                <div class="gold-card">
+                    <div class="card-header">
+                        <i class="fas fa-server"></i>  Mutual Servers
+                    </div>
+                    <div style="display: flex; justify-content: space-between; background: #efe1cd; padding: 16px; border-radius: 28px; margin-bottom: 15px;">
+                        <span><i class="fas fa-crown" style="color:#b8860b;"></i> SHACK 2023</span>
+                        <span>Spicy + hehim</span>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: center; background: #fff3db; border-radius: 50px; padding: 12px 20px;">
+                        <i class="fas fa-comment" style="color:#d4af37; font-size: 24px;"></i>
+                        <span style="font-weight: 500;">Message: "ابي احد يدخله فيني اسمي نواف"</span>
+                    </div>
+                </div>
+
+                <!-- سجل العضوية + صورة إضافية -->
+                <div class="gold-card">
+                    <div class="card-header">
+                        <i class="fas fa-portrait"></i>  سجل شخصي
+                    </div>
+                    <div class="friend-item">
+                        <span><i class="fas fa-calendar-check"></i> Member since</span>
+                        <span>Feb 26, 2025</span>
+                    </div>
+                    <div class="friend-item">
+                        <span><i class="fas fa-sticky-note"></i> Note</span>
+                        <span>visible only to you (femboy)</span>
+                    </div>
+                    <div style="margin-top: 25px; text-align: center;" class="image-card">
+                        <i class="fas fa-image-portrait"></i>
+                        <span>صورة رمزية - فيمبوي</span>
+                        <small>نواف / نوافي</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- الفوتر السفلي (مطابق للصورة مع إضافة الذهبي) -->
+        <div class="footer-gold">
+            <div class="footer-menu">
+                <span><i class="fas fa-th-large"></i> Board</span>
+                <span><i class="far fa-clock"></i> Activity</span>
+                <span><i class="far fa-heart"></i> Wishlist</span>
+                <span><i class="fas fa-user-friends"></i> Mutual Friends</span>
+                <span><i class="fas fa-server"></i> Mutual Servers</span>
+            </div>
+            <div>
+                <i class="fas fa-shield-alt" style="color:#d4af37;"></i> SHACK 2023 • Spicy + hehim
+            </div>
+        </div>
+
+        <!-- الشريط الإضافي: Games1: Like (ولكن تم تحويله إلى إشارة الهوية) -->
+        <div class="additional-strip">
+            <span><i class="fas fa-venus-mars"></i> Femboy identity · HOOP?  ·  VRC  ·  SCHL</span>
+            <span><i class="fas fa-crown" style="color:#d4af37;"></i> Member since: Feb 26, 2025</span>
+        </div>
+
+        <!-- آخر سطر: Games1: Like محول إلى عبارة عن الهوية -->
+        <div style="background: #fbf1dd; padding: 12px 30px; border-top: 1px solid #ebcba0; color: #4c3a1e; display: flex; gap: 20px; flex-wrap: wrap;">
+            <span><i class="fas fa-thumbs-up" style="color:#d4af37;"></i> Games1: Like (HOOP WARFARE, VR CHAT, SCHOLULE) – <strong style="background: #fff2d7;">لكن تم الاستبدال بملف الهوية</strong></span>
+            <span><i class="fas fa-transgender-alt"></i> فيمبوي · متحول إلى بنت</span>
+        </div>
+        <!-- تكرار النوت من الصورة -->
+        <div style="padding: 10px 30px 20px; background: white; border-top: 1px solid #edd4b0; color: #a37c3d;">
+            <i class="fas fa-eye-slash"></i> I only visible to you! Click to add a note (femboy / epstein)
+        </div>
+    </div>
+    <!-- توقيع ذهبي -->
+    <div style="text-align: center; margin-top: 20px; color: #b8860b; opacity: 0.8;">
+        <i class="fas fa-dragon"></i> سجلات نواف بن حبيب – الذهبية الخالصة
+    </div>
+    <div class="evidence-images">
+    <img src="https://cdn.discordapp.com/attachments/1464010800820912159/1475275083260891216/image.png?ex=699f877d&is=699e35fd&hm=dd889fb34112365be25be485bd239d007e0bb95cd02186cbc0793cda3fbe4a03&" alt="دليل 1">
+    <img src="https://cdn.discordapp.com/attachments/1464010800820912159/1475275039011246342/image.png?ex=699f8772&is=699e35f2&hm=d911dcb2c5a0617d6bb292f1401db39f69507d8d2fe74b8bc9c6fa865542a5ae&" alt="دليل 2">
+    <img src="https://cdn.discordapp.com/attachments/1450157421946339331/1476002969446125630/Screenshot_2026-02-23_031429.png?ex=699f8a62&is=699e38e2&hm=47e8ad49acdb8d25b1f039b252a846649c123debda5c8c1ac9125c8609bf3b65&" alt="دليل 3">
+    <img src="https://cdn.discordapp.com/attachments/1464010800820912159/1476002745667424287/Screenshot_2026-02-23_024033.png?ex=699f8a2d&is=699e38ad&hm=29cac6fcf70ca588f6e0d560438191e7429342eecda58dd097275b21e92b4a32&" alt="دليل 4">
+</div>
+</body>
+</html>
